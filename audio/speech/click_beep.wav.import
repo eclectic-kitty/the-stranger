@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/click_beep.wav-e22f94b4a5bb6265f4f10065e124cade.sample"
+
+[deps]
+
+source_file="res://audio/speech/click_beep.wav"
+dest_files=[ "res://.import/click_beep.wav-e22f94b4a5bb6265f4f10065e124cade.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

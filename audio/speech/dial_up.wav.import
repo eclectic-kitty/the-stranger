@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dial_up.wav-3fb88390ed299c8987369ad9554c8889.sample"
+
+[deps]
+
+source_file="res://audio/speech/dial_up.wav"
+dest_files=[ "res://.import/dial_up.wav-3fb88390ed299c8987369ad9554c8889.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

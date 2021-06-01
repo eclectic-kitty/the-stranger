@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eiaeiaeiaeia.wav-ce8e6b1c27ea7e4c4f124c25a0f8f213.sample"
+
+[deps]
+
+source_file="res://audio/speech/eiaeiaeiaeia.wav"
+dest_files=[ "res://.import/eiaeiaeiaeia.wav-ce8e6b1c27ea7e4c4f124c25a0f8f213.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

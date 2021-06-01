@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/buzzz.wav-4eaa463d17c64f09d46ddfeb499ed9b2.sample"
+
+[deps]
+
+source_file="res://audio/speech/buzzz.wav"
+dest_files=[ "res://.import/buzzz.wav-4eaa463d17c64f09d46ddfeb499ed9b2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

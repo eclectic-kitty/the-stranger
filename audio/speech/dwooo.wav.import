@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dwooo.wav-1921c79d88b857bc87269f864b325741.sample"
+
+[deps]
+
+source_file="res://audio/speech/dwooo.wav"
+dest_files=[ "res://.import/dwooo.wav-1921c79d88b857bc87269f864b325741.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

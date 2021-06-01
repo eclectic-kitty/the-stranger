@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/buzzclick.wav-579757504d958fad9e007dfae9c943c2.sample"
+
+[deps]
+
+source_file="res://audio/speech/buzzclick.wav"
+dest_files=[ "res://.import/buzzclick.wav-579757504d958fad9e007dfae9c943c2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

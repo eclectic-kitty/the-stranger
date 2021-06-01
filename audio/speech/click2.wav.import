@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/click2.wav-49dc9c9adde908389faf1ddde68938ed.sample"
+
+[deps]
+
+source_file="res://audio/speech/click2.wav"
+dest_files=[ "res://.import/click2.wav-49dc9c9adde908389faf1ddde68938ed.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0
