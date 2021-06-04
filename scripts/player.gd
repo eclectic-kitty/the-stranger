@@ -9,7 +9,7 @@ var mouse_sensitivity = 0.003 #radians/pixel
 var velocity = Vector3()
 
 onready var player_pos = self.translation
-const world_radius = 270
+const world_radius = 260
 const edge_offset = 5
 
 

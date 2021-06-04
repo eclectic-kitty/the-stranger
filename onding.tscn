@@ -94,7 +94,7 @@ script = ExtResource( 4 )
 transform = Transform( 3, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Floor" type="StaticBody" parent="World"]
-transform = Transform( 90, 0, 0, 0, 1, 0, 0, 0, 90, 0, 0, 0 )
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0 )
 collision_layer = 4
 
 [node name="MeshInstance" type="MeshInstance" parent="World/Floor"]
