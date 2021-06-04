@@ -8,6 +8,10 @@ var max_speed = 6
 var mouse_sensitivity = 0.003 #radians/pixel
 var velocity = Vector3()
 
+onready var player_pos = self.translation
+const world_radius = 270
+const edge_offset = 5
+
 
 func _ready():
 	pass
@@ -35,6 +39,15 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.5, 1.5)
 
 
+# Teleport a player to the opposite side of the world when they reach the edge
+func stitch_torus():
+	player_pos = self.translation
+	if abs(player_pos.x) > world_radius:
+		self.translation.x = -(self.translation.x - edge_offset*(abs(self.translation.x)/self.translation.x)) 
+	if abs(player_pos.z) > world_radius:
+		self.translation.z = -(self.translation.z - edge_offset*(abs(self.translation.z)/self.translation.z)) 
+
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	var input_velocity = get_input() * max_speed
@@ -42,4 +55,5 @@ func _physics_process(delta):
 	velocity.x = input_velocity.x
 	velocity.z = input_velocity.z
 	
+	stitch_torus()
 	velocity = move_and_slide(velocity, Vector3.UP, true)
