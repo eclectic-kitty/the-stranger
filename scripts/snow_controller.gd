@@ -17,7 +17,9 @@ func _process(_delta):
 
 func _on_SnowTimer_timeout():
 	var snow = snow_scene.instance()
-	add_child(snow)
 	
 	player_pos = player.translation
 	snow.translation = player_pos
+	
+	add_child(snow)
+	
