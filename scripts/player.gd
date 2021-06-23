@@ -3,20 +3,18 @@ extends KinematicBody
 
 onready var camera = $Pivot/Camera
 
+# Movement variables
 var gravity = -30
 var max_speed = 6
-var mouse_sensitivity = 0.003 #radians/pixel
+var mouse_sensitivity = 0.003 # in radians/pixel
 var velocity = Vector3()
 
-onready var player_pos = self.translation
+# World looping variables
 const world_radius = 260
 const edge_offset = 5
 
 
-func _ready():
-	pass
-
-
+# Gets direction of movement from player input
 func get_input():
 	var input_dir = Vector3()
 	if Input.is_action_pressed("move_forward"):
@@ -31,6 +29,7 @@ func get_input():
 	return input_dir
 
 
+# Rotates camera and forward direction based on mouse input
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -39,15 +38,21 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.5, 1.5)
 
 
-# Teleport a player to the opposite side of the world when they reach the edge
+# Teleports a player to the opposite side of the world at a certain distance from the edge 
+# & calls a function on snow particle effects to teleport with the player
 func stitch_torus():
-	player_pos = self.translation
-	if abs(player_pos.x) > world_radius:
-		self.translation.x = -(self.translation.x - edge_offset*(abs(self.translation.x)/self.translation.x)) 
-	if abs(player_pos.z) > world_radius:
-		self.translation.z = -(self.translation.z - edge_offset*(abs(self.translation.z)/self.translation.z)) 
+	var old_pos = self.translation
+	
+	if abs(self.translation.x) > world_radius:
+		self.translation.x = -(self.translation.x - edge_offset*(abs(self.translation.x)/self.translation.x))
+		get_tree().call_group("snows", "teleport_to_player", old_pos, self.translation)
+		
+	if abs(self.translation.z) > world_radius:
+		self.translation.z = -(self.translation.z - edge_offset*(abs(self.translation.z)/self.translation.z))
+		get_tree().call_group("snows", "teleport_to_player", old_pos, self.translation)
 
 
+# Moves player every physics frame
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	var input_velocity = get_input() * max_speed

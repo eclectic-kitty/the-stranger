@@ -2,24 +2,23 @@ extends Spatial
 
 
 var player
-var player_pos
 
 var snow_scene = load("res://snow.tscn")
 
-
+# Init function
 func _ready():
+	# Assigns player variable Player node
 	player = $"../Player"
-	var snow = snow_scene.instance()
-	add_child(snow)
+	
+	# Creates first snow instance
+	_on_SnowTimer_timeout()
 
-func _process(_delta):
-	pass
 
+# Creates new snow instances every 5 seconds on signal from SnowTimer node
 func _on_SnowTimer_timeout():
 	var snow = snow_scene.instance()
 	
-	player_pos = player.translation
+	var player_pos = player.translation
 	snow.translation = player_pos
 	
 	add_child(snow)
-	
