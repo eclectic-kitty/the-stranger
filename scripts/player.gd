@@ -62,3 +62,9 @@ func _physics_process(delta):
 	
 	stitch_torus()
 	velocity = move_and_slide(velocity, Vector3.UP, true)
+
+	# Plays footstep when player is walking, and starts a timer that
+	# inhibits footsteps for its duration.
+	if velocity.z and $FootstepTimer.is_stopped():
+		$FootstepSounds.play(0)
+		$FootstepTimer.start()
