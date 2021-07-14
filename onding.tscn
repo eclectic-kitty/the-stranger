@@ -247,4 +247,5 @@ __meta__ = {
 stream = ExtResource( 8 )
 volume_db = -20.0
 bus = "Wind"
+
 [connection signal="timeout" from="SnowTimer" to="SnowController" method="_on_SnowTimer_timeout"]

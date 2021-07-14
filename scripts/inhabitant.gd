@@ -37,19 +37,8 @@ func _ready():
 	$Mouth.bus = str(bus_id)
 	
 	# This loads all the audio files for talking
-	var dir = Directory.new()
-	dir.open("res://audio/speech")
-	dir.list_dir_begin(true, true)
-	
-	while true:
-		var file = dir.get_next()
-		if file == "": 
-			break
-		elif file.ends_with(".import"):
-			file = file.replace(".import", "")
-			var path = "res://audio/speech/" + file
-			var res = load(path)
-			sounds.append(res)
+	var sound_files = load("res://scripts/files.gd").new()
+	sounds = sound_files.list_files("res://audio/speech/")
 
 func _physics_process(_delta):
 	var camera_pos = camera.get_global_transform().origin # This gets the camera's position
