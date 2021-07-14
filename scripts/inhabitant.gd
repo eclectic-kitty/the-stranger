@@ -16,7 +16,7 @@ var rot = 0
 var A = AudioServer
 var clicked
 var click_pos
-var sounds = []
+var speech_sounds = []
 var bus_id
 
 func _ready():
@@ -37,8 +37,8 @@ func _ready():
 	$Mouth.bus = str(bus_id)
 	
 	# This loads all the audio files for talking
-	var sound_files = load("res://scripts/files.gd").new()
-	sounds = sound_files.list_files("res://audio/speech/")
+	var speech_files = load("res://scripts/files.gd").new()
+	speech_sounds = speech_files.list_files("res://audio/speech/")
 
 func _physics_process(_delta):
 	var camera_pos = camera.get_global_transform().origin # This gets the camera's position
@@ -71,7 +71,7 @@ func _physics_process(_delta):
 		var to = from + camera.project_ray_normal(click_pos) * 1000
 		var click = direct_state.intersect_ray(from, to, [], 2)
 		if click and click["collider"] == $Armature/RigidBody:
-			$Mouth.set_stream(sounds[randi() % (sounds.size() - 1)])
+			$Mouth.set_stream(speech_sounds[randi() % (speech_sounds.size())])
 			$Mouth.play(0.0)
 	clicked = 0
 			
