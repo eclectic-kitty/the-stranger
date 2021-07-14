@@ -27,8 +27,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
 
-[node name="FootstepSounds" type="AudioStreamPlayer" parent="."]
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 
-[node name="FootstepTimer" type="Timer" parent="."]
+[node name="FootstepsTimer" type="Timer" parent="."]
 one_shot = true
