@@ -74,7 +74,7 @@ func _physics_process(delta):
 
 	# Plays footstep when player is walking, and starts a timer that
 	# inhibits footsteps for its duration.
-	if velocity.z and $FootstepTimer.is_stopped():
-		$FootstepSounds.set_stream(step_sounds[randi() % (step_sounds.size())])
-		$FootstepSounds.play(0)
-		$FootstepTimer.start()
+	if velocity.z and $FootstepsTimer.is_stopped():
+		$Footsteps.set_stream(step_sounds[randi() % (step_sounds.size())])
+		$Footsteps.play(0)
+		$FootstepsTimer.start()
