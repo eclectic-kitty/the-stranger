@@ -1,9 +1,16 @@
 extends GDScript
 
 
+var file_list = []
+
+
+func _init(path = "res://"):
+	list(path)
+
+
 # This loads all the files in a directory as resources into an array
-func list_files(path):
-	var file_list = []
+func list(path):
+	file_list = []
 	var dir = Directory.new()
 	dir.open(path)
 	dir.list_dir_begin(true, true)
@@ -17,3 +24,6 @@ func list_files(path):
 			var res = load(path + file)
 			file_list.append(res)
 	return file_list
+
+func random():
+	 return file_list[randi() % (file_list.size())]

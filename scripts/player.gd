@@ -13,14 +13,12 @@ var velocity = Vector3()
 const world_radius = 260
 const edge_offset = 5
 
-# Footstep sounds array
-var step_sounds = []
+var step_files
 
 
 # Loads footstep sound files as resources
 func _ready():
-	var step_files = load("res://scripts/files.gd").new()
-	step_sounds = step_files.list_files("res://audio/footsteps/")
+	step_files = load("res://scripts/files.gd").new("res://audio/footsteps/")
 
 
 # Gets direction of movement from player input
@@ -75,6 +73,6 @@ func _physics_process(delta):
 	# Plays footstep when player is walking, and starts a timer that
 	# inhibits footsteps for its duration.
 	if velocity.z and $FootstepsTimer.is_stopped():
-		$Footsteps.set_stream(step_sounds[randi() % (step_sounds.size())])
+		$Footsteps.set_stream(step_files.random())
 		$Footsteps.play(0)
 		$FootstepsTimer.start()

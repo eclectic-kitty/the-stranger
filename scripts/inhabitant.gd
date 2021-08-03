@@ -16,8 +16,10 @@ var rot = 0
 var A = AudioServer
 var clicked
 var click_pos
-var speech_sounds = []
+#var speech_sounds = []
 var bus_id
+
+var speech_files
 
 func _ready():
 	# This sets the npc to the standing animation, but with speed at 0 so it stands still
@@ -37,8 +39,7 @@ func _ready():
 	$Mouth.bus = str(bus_id)
 	
 	# This loads all the audio files for talking
-	var speech_files = load("res://scripts/files.gd").new()
-	speech_sounds = speech_files.list_files("res://audio/speech/")
+	speech_files = load("res://scripts/files.gd").new("res://audio/speech/")
 
 func _physics_process(_delta):
 	var camera_pos = camera.get_global_transform().origin # This gets the camera's position
@@ -71,7 +72,7 @@ func _physics_process(_delta):
 		var to = from + camera.project_ray_normal(click_pos) * 1000
 		var click = direct_state.intersect_ray(from, to, [], 2)
 		if click and click["collider"] == $Armature/RigidBody:
-			$Mouth.set_stream(speech_sounds[randi() % (speech_sounds.size())])
+			$Mouth.set_stream(speech_files.random())
 			$Mouth.play(0.0)
 	clicked = 0
 			
